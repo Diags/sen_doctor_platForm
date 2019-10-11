@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -23,6 +20,7 @@ public class UserClient {
     private String email;
     @ApiModelProperty(notes = "Password for client user")
     private String password;
+    @OneToOne
     @ApiModelProperty(notes = "Adresse for client user")
     private Adresse adresse;
 }

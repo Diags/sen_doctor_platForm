@@ -30,7 +30,7 @@ public class Adresse {
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @ApiModelProperty(notes = "Adresse country name")
     private Country country;
-    @OneToOne(mappedBy = "professionnal")
+    @OneToOne(mappedBy = "adresse")
     @ApiModelProperty(notes = "Adresse of proffessionnal")
     private Professionnal professionnal;
 }

@@ -1,14 +1,12 @@
 package sen_doctor.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -28,4 +26,7 @@ public class Study {
     private Date dateExperience;
     @ApiModelProperty(notes = "Experience of proffessionnal")
     private String experience;
+    @JsonManagedReference
+    @ManyToOne
+    private Professionnal professionnal;
 }

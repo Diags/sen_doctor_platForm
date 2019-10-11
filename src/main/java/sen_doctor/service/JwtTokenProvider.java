@@ -6,9 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import sen_doctor.config.SecurityConstants;
 import sen_doctor.errorHandle.InvalidTokenRequestException;
-import sen_doctor.model.Professionnal;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.util.Date;
 
@@ -21,18 +22,21 @@ public class JwtTokenProvider {
     @Value("${auth.token.SECRET:xreflite_ABB@abb.com}")
     private String SECRET;
 
-    public String generateToken(Professionnal professionnal) {
+    public String generateToken(String email, String role, HttpServletResponse httpServletResponse) {
 
-        logger.info("{generateToken} user  " + professionnal);
+        logger.info("{generateToken} user  " + email);
         String jwtToken = Jwts.builder()
-                .setSubject(null)
-                .setExpiration(null)
+                .setSubject(email)
+                .setExpiration(new Date())
                 .signWith(SignatureAlgorithm.HS512, SECRET)
-                .claim("roles", null)
+                .claim("roles", role)
                 .compact();
         logger.info("Token user  " + jwtToken);
+        httpServletResponse.addHeader(SecurityConstants.HEADER_STRING,
+                SecurityConstants.TOKEN_PREFIX + jwtToken);
         return jwtToken;
     }
+
 
     public Date getJwtExpirationDate(String token) {
         Claims claims = Jwts.parser()

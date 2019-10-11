@@ -1,20 +1,27 @@
 package sen_doctor.config;
 
-import monartisant.com.projetartisant.ws.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import sen_doctor.model.RoleEnum;
+import sen_doctor.service.DetailsServiceImpl;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    private UserDetailsServiceImpl userDetailsServiceimpl;
+    private DetailsServiceImpl userDetailsServiceimpl;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -29,21 +36,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // don't create session
                 // make sure we use stateless session; session won't be used to store user's state.
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-               .and()
+                .and()
                 // handle an authorized attempts
-//                .exceptionHandling().authenticationEntryPoint((req, rsp, e) -> rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
-//                .and()
+                .exceptionHandling().authenticationEntryPoint((req, rsp, e) -> rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You are UNAUTHORIZED"))
+                .and()
                 .authorizeRequests()
-                .antMatchers( "/login/**","/signin/**","/photouser/**","/categories/**","/users/**","/professions/**","/addprofessional/**",
-                        "/search/**","/updatenote/**","/allUsers/**","/sendemail/**","/sendemailcontacterme/**","/searchuserbyville/**","/updateusermdp/**"
-                ,"/loginuser/**","/confirmregister/**","/register/**","/photoprofession/**","/photocategory/**","/categorybyid/**","/events/**")
+                .antMatchers("/registerclient/**", "/registerprofessional/**", "/loginprofessionnal/**", "/loginclient/**", "/profesionnalimage/**", "/categories/**", "/professionnals/**", "/specialities/**", "/search/**")
                 .permitAll()
-//                .antMatchers(HttpMethod.GET, "/allUsers/**","professions/**","users/**","photouser/**","categories/**","photoprofession/**","photocategory/**","categorybyid/**","villes/**").permitAll()
-//                .antMatchers(HttpMethod.POST, "/allUsers/**","/professions/**","/users/**","/photouser/**","categories/**","/photoprofession/**","/photocategory/**","/categorybyid/**","/villes/**").permitAll()
-                .anyRequest().authenticated().and();
-//                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
-//                .addFilterBefore(new JWTAuthorizationFilter(),
-//                        UsernamePasswordAuthenticationFilter.class);
+                .antMatchers(HttpMethod.DELETE, "deleteProfessional/**").hasRole(String.valueOf(RoleEnum.ADMINISTRATOR))
+                .antMatchers(HttpMethod.POST, "addProfessional/**").hasRole(String.valueOf(RoleEnum.ADMINISTRATOR))
+                .anyRequest()
+                .authenticated()
+                .and()
+                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+                .addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+                .headers().cacheControl();
 
     }
 }

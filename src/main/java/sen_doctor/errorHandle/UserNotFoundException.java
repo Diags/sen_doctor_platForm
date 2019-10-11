@@ -1,13 +1,14 @@
 package sen_doctor.errorHandle;
 
-import monartisant.com.projetartisant.model.User;
+
+import sen_doctor.model.Professionnal;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(Long id) {
         super("Could not find customer id =  " + id);
     }
 
-    public UserNotFoundException(User customer) {
+    public UserNotFoundException(Professionnal customer) {
         super("Could not find customer " + customer);
     }
     public UserNotFoundException(String user){

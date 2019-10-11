@@ -1,12 +1,18 @@
 package sen_doctor.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Collection;
 
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Speciality {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +26,6 @@ public class Speciality {
     private String description;
     @ApiModelProperty(notes = "The list of professionnal for this  speciality")
     @JsonBackReference
-    @OneToMany(mappedBy = "professionnal")
-    private List<Professionnal> professionnals;
-    @ApiModelProperty(notes = "The category of this Speciality")
-    @JsonManagedReference
-    @ManyToOne
-    private Category category;
-
-
-
+    @OneToMany(mappedBy = "speciality")
+    private Collection<Professionnal> professionnals;
 }
