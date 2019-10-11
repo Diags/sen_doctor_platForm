@@ -21,8 +21,13 @@ import java.util.Objects;
 
 @RestController
 public class ProfessionnalController {
-    @Autowired
     private ProfessionnalRepository professionnalRepository;
+
+    @Autowired
+    public ProfessionnalController(ProfessionnalRepository professionnalRepository) {
+        this.professionnalRepository = professionnalRepository;
+    }
+
     @ApiOperation(value = "retreive user image from id")
     @GetMapping(path = "/profesionnalimage/{id}", produces = MediaType.IMAGE_PNG_VALUE)
     public byte[] getProfessionalImage(@PathVariable("id") Long id) throws Exception {
@@ -82,6 +87,10 @@ public class ProfessionnalController {
         Objects.requireNonNullElse(professionnalDB, new UserNotFoundException(professionnalDB));
         professionnalRepository.save(professionnalDB);
         return professionnalDB;
+    }
+
+    public void setProfessionnalRepository(ProfessionnalRepository professionnalRepository) {
+        this.professionnalRepository = professionnalRepository;
     }
 
 }
