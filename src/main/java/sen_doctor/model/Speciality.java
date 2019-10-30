@@ -27,5 +27,5 @@ public class Speciality {
     @ApiModelProperty(notes = "The list of professionnal for this  speciality")
     @JsonBackReference
     @OneToMany(mappedBy = "speciality")
-    private Collection<Professionnal> professionnals;
+    private Collection<Professional> professionals;
 }

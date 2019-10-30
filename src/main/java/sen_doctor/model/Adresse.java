@@ -32,5 +32,5 @@ public class Adresse {
     private Country country;
     @OneToOne(mappedBy = "adresse")
     @ApiModelProperty(notes = "Adresse of proffessionnal")
-    private Professionnal professionnal;
+    private Professional professional;
 }

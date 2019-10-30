@@ -26,5 +26,5 @@ public class UserClientComment {
     private Collection<String> comments = new ArrayList<>();
     @ApiModelProperty(notes = "fetch  professionnal who has comment ")
     @ManyToOne(cascade = CascadeType.ALL)
-    private Professionnal professionnal ;
+    private Professional professional;
 }

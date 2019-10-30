@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sen_doctor.model.Professionnal;
+import sen_doctor.model.Professional;
 import sen_doctor.model.RoleEnum;
-import sen_doctor.repository.ProfessionnalRepository;
+import sen_doctor.repository.ProfessionalRepository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,11 +19,11 @@ import java.util.Set;
 @Transactional
 public class DetailsServiceImpl implements UserDetailsService {
     @Autowired
-    private ProfessionnalRepository professionnalRepository;
+    private ProfessionalRepository professionalRepository;
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) {
-        Professionnal user = professionnalRepository.findByEmail(userEmail);
+        Professional user = professionalRepository.findByEmail(userEmail);
         if (user == null) throw new UsernameNotFoundException(userEmail);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();

@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import sen_doctor.SenDoctorApplication;
 
 @RunWith(SpringRunner.class)
@@ -28,11 +29,11 @@ public class SenDoctorApplicationTests {
     public void contextLoads() throws Exception {
         MvcResult mvcResult = mockMvc.perform(
                 MockMvcRequestBuilders
-                        .get("/professionnals")
+                        .get("/proffesionnals")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
         )
-                //.andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
     }
 

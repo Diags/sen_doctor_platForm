@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import sen_doctor.model.*;
-import sen_doctor.repository.ProfessionnalRepository;
+import sen_doctor.repository.ProfessionalRepository;
 import sen_doctor.repository.SpecialityRepository;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.Random;
 @SpringBootApplication
 public class SenDoctorApplication implements CommandLineRunner {
     @Autowired
-    private ProfessionnalRepository professionnalRepository;
+    private ProfessionalRepository professionalRepository;
     @Autowired
     private RepositoryRestConfiguration repositoryRestConfiguration;
     @Autowired
@@ -39,7 +39,7 @@ public class SenDoctorApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
-        repositoryRestConfiguration.exposeIdsFor(Professionnal.class, Adresse.class, Speciality.class);
+        repositoryRestConfiguration.exposeIdsFor(Professional.class, Adresse.class, Speciality.class);
         specialityRepository.save(new Speciality(null, "MEDECIN-GENERALISTE", RandomString.make(12), RandomString.make(12), null));
         specialityRepository.save(new Speciality(null, "CHIRUGIE-DENTISTE", RandomString.make(12), RandomString.make(12), null));
         specialityRepository.save(new Speciality(null, "PHARMACIEN", RandomString.make(12), RandomString.make(12), null));
@@ -301,7 +301,7 @@ public class SenDoctorApplication implements CommandLineRunner {
     }
 
     private void createProfessionnal(ArrayList<String> mylist, ArrayList<String> villes, ArrayList<String> nom, ArrayList<String> prenom, int i, Speciality c) {
-        Professionnal user = new Professionnal();
+        Professional user = new Professional();
         Country pays = new Country();
         UserClientComment userCommentaire = new UserClientComment();
         userCommentaire.setCreateBy("diags");
@@ -331,7 +331,7 @@ public class SenDoctorApplication implements CommandLineRunner {
         user.setConfirmPassword(bCryptPasswordEncoder().encode("toto"));
         user.setRoles(Collections.singleton(RoleEnum.USER));
         user.setUserClientComments(Collections.singleton(userCommentaire));
-        professionnalRepository.save(user);
+        professionalRepository.save(user);
     }
 
 }

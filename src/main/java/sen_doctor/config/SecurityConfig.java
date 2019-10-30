@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint((req, rsp, e) -> rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You are UNAUTHORIZED"))
                 .and()
                 .authorizeRequests()
-                .antMatchers("/registerclient/**", "/registerprofessional/**", "/loginprofessionnal/**", "/loginclient/**", "/profesionnalimage/**", "/categories/**", "/professionnals/**", "/specialities/**", "/search/**")
+                .antMatchers("/v2/api-docs/**","/v2/api-docs?group=SEN_DOCTOR_PLATFORM_SERVICE/**","/swagger-ui.html/swagger-resources/**","/swagger-ui.html/swagger-resources/configuration/ui/**","/swagger-ui.html/swagger-resources/configuration/security/**","/swagger-ui.html/swagger-resources/configuration/ui/**","/META-INF/resources/**","/META-INF/resources/webjars/**","/swagger-resources/**","/swagger-resources/configuration/ui/**","/swagger-resources/configuration/security/**","/swagger-resources/configuration/security/**","**/api/**","/swagger-resource/**","/webjars/**","/swagger-ui.html/**","/registerclient/**", "/registerprofessional/**", "/loginprofessionnal/**", "/loginclient/**", "/profesionnalimage/**", "/categories/**", "/professionnals/**","/proffesionnals/**" ,"/specialities/**", "/search/**")
                 .permitAll()
                 .antMatchers(HttpMethod.DELETE, "deleteProfessional/**").hasRole(String.valueOf(RoleEnum.ADMINISTRATOR))
                 .antMatchers(HttpMethod.POST, "addProfessional/**").hasRole(String.valueOf(RoleEnum.ADMINISTRATOR))
