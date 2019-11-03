@@ -1,18 +1,19 @@
-.header{
+.header {
   margin-bottom: 23%;
 }
+
 .logo {
   margin-left: 0%;
   margin-top: 0%;
   height: 50px;
 }
 
-.searchBarProfessional{
+.searchBarProfessional {
   height: 3.5em;
   flex: 1 0 0;
   line-height: 16px;
   padding: 0 46px;
-  font-family: "Roboto",Arial,sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   border: none;
   background-color: #fff;
   color: #435f71;
@@ -21,24 +22,26 @@
   width: 100%;
   border-radius: 8px 0 0 8px !important;
 }
-.searchbar-input-icon-town{
+
+.searchbar-input-icon-town {
   height: 20px;
   width: 20px;
   pointer-events: none;
-  fill: rgba(67,95,113,0.3);
+  fill: rgba(67, 95, 113, 0.3);
   z-index: 1;
   position: absolute;
   height: 20px;
   width: 20px;
   pointer-events: none;
-  fill: rgba(67,95,113,0.3);
+  fill: rgba(67, 95, 113, 0.3);
 }
+
 .searchBarTown {
   height: 3.5em;
   flex: 1 0 0;
   line-height: 16px;
   padding: 0 46px;
-  font-family: "Roboto",Arial,sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   border: none;
   background-color: #fff;
   color: #435f71;
@@ -47,6 +50,7 @@
   width: 100%;
   border-radius: 8px 0 0 8px !important;
 }
+
 .searchbar-input-icon {
   position: absolute;
   top: 20px;
@@ -54,36 +58,41 @@
   height: 20px;
   width: 20px;
   pointer-events: none;
-  fill: rgba(67,95,113,0.3);
+  fill: rgba(67, 95, 113, 0.3);
   z-index: 1;
 }
+
 .card {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
-.card-deck{
+
+.card-deck {
   margin-bottom: 2%;
 
 }
 
 /* On mouse-over, add a deeper shadow */
 .card-deck .card :hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   background-color: gold;
 }
+
 .card-deck .card :active {
   background-color: gold;
   box-shadow: 0 5px gold;
   transform: translateY(4px);
 }
 
-.card-columns  li{
+.card-columns li {
   list-style-type: none;
 }
-.textseach {
+
+.textseach-specialite-ville {
   text-align: center;
+  font-family: monospace;
 }
 
 .mapSen {
@@ -138,15 +147,16 @@
   stroke-width: 2.5;
 }
 
-.tex {
+.text-Header {
   text-align: center;
   color: #fff !important;;
   background-color: #dfedff;
   padding-bottom: 4%;
   padding-top: 2%;
+  font-family: fantasy;
 }
 
-.headerText {
+.headerText-h1 {
   margin-top: 8%;
 }
 
@@ -188,73 +198,99 @@
   background-color: #dfedff;
   padding-top: 9%;
 }
+
 .etape .image {
   height: 100px;
   margin-bottom: 20px;
 
 
 }
-.etape .image:hover{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+.etape .image:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   cursor: pointer;
 }
+
 .commentMarche .fonctionnement img {
   height: 100%;
   width: auto;
 }
-.commentMarche h2{
+
+image p {
+  font-family: monospace;
+}
+
+.commentMarche h2 {
   color: #EF7900;
   margin: 30px 0;
   font-weight: 600;
   font-size: 40px;
   text-align: center;
   line-height: 1em;
+  font-family: monospace;
 }
+
 div.fonctionnement {
   padding-top: 20px;
 }
+
 .equipeText {
   text-align: center;
   color: #EF7900;
+  font-family: monospace;
 }
+
 .img-circle {
   border-radius: 50%;
   margin-left: 28%;
 
 }
-.img-circle:hover{
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+.img-circle:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   cursor: pointer;
 }
+
 .fonctionnement {
   margin-bottom: 40px;
 }
+
 .text-center {
-  text-align: center!important;
+  text-align: center !important;
 }
+
 .etape p {
   color: #8095a0;
   font-weight: 400;
+  font-family: fantasy;
 }
+
 .etape i {
   color: #EF7900;
-  font-weight: 600;}
+  font-weight: 600;
+  font-family: fantasy;
+}
+
 .etape .titre_etape {
   color: #EF7900;
   font-weight: 600;
   font-size: 16px;
   text-transform: uppercase;
+  font-family: monospace;
 }
-.equipe{
+
+.equipe {
   color: #8095a0;
   font-weight: 400;
   font-size: 0.5em;
   text-align: center;
   text-space: 2px;
   padding-top: 2%;
+  font-family: monospace;
 }
+
 @media screen and (max-width: 600px) {
   .healthImage {
     width: 100%;
@@ -262,16 +298,17 @@ div.fonctionnement {
     margin-top: 17em;
   }
 
-  .tex h1 {
+  .text-Header h1 {
     font-size: inherit;
     margin-top: 54%;
     color: black;
   }
 
-  .tex h4 {
+  .text-Header h4 {
     font-size: small;
     color: black;
   }
+
   .map_image {
     width: 51%;
     float: left;
@@ -285,6 +322,7 @@ div.fonctionnement {
     height: auto;
     margin-top: 17em;
   }
+
   .map_list {
     float: right;
     cursor: pointer;
@@ -292,11 +330,12 @@ div.fonctionnement {
     font-size: 10.5px;
     display: flex;
   }
-  .tex h1 {
+
+  .text-Header h1 {
     margin-top: 14%;
   }
 
-  .tex h4 {
+  .text-Header h4 {
     margin-top: 0%;
   }
 }
@@ -308,11 +347,11 @@ div.fonctionnement {
     margin-top: 15em;
   }
 
-  .tex h1 {
+  .text-Header h1 {
     margin-top: 59%;
   }
 
-  .tex h4 {
+  .text-Header h4 {
     margin-top: 0%;
   }
 
@@ -321,6 +360,7 @@ div.fonctionnement {
     height: auto;
     margin-top: 16em;
   }
+
   .map_list {
     float: right;
     cursor: pointer;
@@ -340,13 +380,14 @@ div.fonctionnement {
     margin-top: 16em;
   }
 
-  .tex h1 {
+  .text-Header h1 {
     margin-top: 47%;
   }
 
-  .tex h4 {
+  .text-Header h4 {
     margin-top: 0%;
   }
+
   .map_list {
     float: right;
     cursor: pointer;

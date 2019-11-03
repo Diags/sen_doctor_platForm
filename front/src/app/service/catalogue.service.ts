@@ -77,4 +77,8 @@ export class CatalogueService {
     return this.http.post(this.host + "/register", user);
   }
 
+  getProfesionnalsByTown() {
+    return this.http.get(this.host+"/searchprofesionnalbytown")
+
+  }
 }

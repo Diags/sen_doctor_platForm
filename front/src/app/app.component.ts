@@ -1,21 +1,25 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {CatalogueService} from "./service/catalogue.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit,AfterViewInit{
-  @ViewChild('mapSen',{ static:false}) mapSen: ElementRef;
+export class AppComponent implements OnInit, AfterViewInit {
+  @ViewChild('mapSen', {static: false}) mapSen: ElementRef;
   title = 'SEN-DOCTOR';
   specialities;
-  constructor( private  routeActive: ActivatedRoute, private route: Router) {
+
+  constructor(private  routeActive: ActivatedRoute, private route: Router, private catalogService:CatalogueService) {
   }
+
   ngOnInit(): void {
-//this.specialities = this.specialities.__embedded.specialities;
-console.log(this.specialities);
+    this.getProfesionnalsByTown();
+    console.log(this.specialities);
   }
+
   ngAfterViewInit(): void {
     let map = this.mapSen.nativeElement.querySelector("div");
     let paths = map.querySelectorAll('svg a');
@@ -60,9 +64,10 @@ console.log(this.specialities);
     }
 
   }
+
   getUsersByville(event) {
     var data = {paysName: "senegal", ville: event.target.innerHTML};
-    console.log(data , "tests mapp>>>>")
+    console.log(data, "tests mapp>>>>")
   }
 
   onClick($event) {
@@ -70,7 +75,15 @@ console.log(this.specialities);
       paysName: "senegal",
       ville: $event.target.id
     };
-    console.log(data , "on tests mapp>>>>")
+    console.log(data, "on tests mapp>>>>")
 
+  }
+
+  getProfesionnalsByTown() {
+    this.catalogService.getProfesionnalsByTown().subscribe(resp => {
+        this.specialities = resp;
+        console.log(resp, "respose professionals");
+      }
+    )
   }
 }

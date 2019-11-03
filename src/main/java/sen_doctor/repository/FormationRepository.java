@@ -5,5 +5,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import sen_doctor.model.Formation;
 
 @RepositoryRestResource
-public interface StudyRepository extends JpaRepository<Formation, Long> {
+public interface FormationRepository extends JpaRepository<Formation, Long> {
 }

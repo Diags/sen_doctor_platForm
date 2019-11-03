@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import sen_doctor.repository.ProfessionalRepository;
 
 @RestController
-public class StudyController {
+public class FormationController {
     @Autowired
     private ProfessionalRepository professionalRepository;
 

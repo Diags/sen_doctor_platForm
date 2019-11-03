@@ -1,8 +1,11 @@
 package sen_doctor.controller;
 
 import io.swagger.annotations.ApiOperation;
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import sen_doctor.dto.LoginParam;
@@ -10,6 +13,7 @@ import sen_doctor.dto.RegisterProfessionalParam;
 import sen_doctor.errorHandle.UserNotFoundException;
 import sen_doctor.model.Professional;
 import sen_doctor.repository.ProfessionalRepository;
+import sen_doctor.service.ParmSearchProfessionnalBySpecialityAndTown;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -32,6 +36,16 @@ public class ProfessionnalController {
     @GetMapping(path = "/proffesionnals")
     public List<Professional> getProfessionals() {
         return professionalRepository.findAll();
+    }
+
+    @ApiOperation (value= "retreive professional in specifique fonction and town from database ")
+    @GetMapping(path = "/searchprofesionnalbytown")
+    public ResponseEntity<List<Professional>> getProfesionnalsBySpecialityAndTwon(@RequestBody()ParmSearchProfessionnalBySpecialityAndTown param) throws Exception {
+        List<Professional> professionals = professionalRepository.getBySpeciality_NameAndAdresse_Town(param.getName(),param.getTwon());
+        if(professionals == null){
+            throw new Exception("Pas de professional dans cette ville");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(professionals);
     }
 
     @ApiOperation(value = "retreive professional from database")
