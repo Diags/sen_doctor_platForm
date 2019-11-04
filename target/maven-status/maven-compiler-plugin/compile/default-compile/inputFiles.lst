@@ -11,7 +11,9 @@
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/controller/ProfessionnalController.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/controller/SwaggerConfig.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/model/UserClient.java
+/Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/service/ParmSearchProfessionnalBySpecialityAndTown.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/repository/CountryRepository.java
+/Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/controller/FormationController.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/model/Professional.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/controller/PaymentController.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/model/Formation.java
@@ -25,11 +27,11 @@
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/errorHandle/BadRequestException.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/dto/LoginParam.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/repository/SpecialityRepository.java
+/Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/controller/SpecialityController.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/model/GenreEnum.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/config/SecurityConstants.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/model/RoleEnum.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/repository/AdresseRepository.java
-/Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/controller/StudyController.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/errorHandle/AppException.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/service/BeanGenerique.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/repository/UserClientCommentRepository.java
@@ -39,7 +41,7 @@
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/controller/UserClientCommentController.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/model/Country.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/model/Adresse.java
-/Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/repository/StudyRepository.java
+/Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/repository/FormationRepository.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/controller/CountryController.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/model/Speciality.java
 /Users/sylla/Documents/Documents - MacBook Air de Sylla/worckspace/sen_doctor_platForm/src/main/java/sen_doctor/service/DetailsServiceImpl.java

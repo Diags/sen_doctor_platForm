@@ -1,4 +1,5 @@
 sen_doctor/config/SecurityConfig.class
+sen_doctor/repository/FormationRepository.class
 sen_doctor/controller/PaymentController.class
 sen_doctor/model/Formation.class
 sen_doctor/controller/UserClientCommentController.class
@@ -11,7 +12,7 @@ sen_doctor/controller/ProfessionnalController.class
 sen_doctor/controller/CountryController.class
 sen_doctor/service/JwtTokenProvider.class
 sen_doctor/model/Agenda.class
-sen_doctor/controller/StudyController.class
+sen_doctor/controller/FormationController.class
 sen_doctor/model/Country.class
 sen_doctor/model/GenreEnum.class
 sen_doctor/errorHandle/UserNotFoundException.class
@@ -25,8 +26,9 @@ sen_doctor/controller/SwaggerConfig.class
 sen_doctor/repository/UserClientCommentRepository.class
 sen_doctor/controller/UserClientController.class
 sen_doctor/model/RoleEnum.class
-sen_doctor/repository/StudyRepository.class
 sen_doctor/model/Speciality.class
+sen_doctor/controller/SpecialityController.class
+sen_doctor/service/ParmSearchProfessionnalBySpecialityAndTown.class
 sen_doctor/repository/PayementRepository.class
 sen_doctor/config/JWTAuthenticationFilter.class
 sen_doctor/repository/AdresseRepository.class

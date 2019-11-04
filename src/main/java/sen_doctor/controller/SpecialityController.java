@@ -22,10 +22,10 @@ public class SpecialityController {
     private SpecialityRepository specialityRepository;
 
     @ApiOperation(value = "retreive pro image from id")
-    @GetMapping(path = "/profesionnalimage/{id}", produces = MediaType.IMAGE_PNG_VALUE)
-    public byte[] getSpeciality(@PathVariable("id") Long id) throws Exception {
+    @GetMapping(path = "/specialistimage/{id}", produces = MediaType.IMAGE_PNG_VALUE)
+    public byte[] getSpecialityImageByProfessionalId(@PathVariable("id") Long id) throws Exception {
         Speciality speciality  = specialityRepository.findById(id).get();
-        return Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("docimages/" + speciality.getPhoto() + ".png").toURI()));
+        return Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("docimages/catalogue" + speciality.getPhoto() + ".png").toURI()));
     }
 
     @GetMapping("/specialities")

@@ -1,7 +1,6 @@
 package sen_doctor.controller;
 
 import io.swagger.annotations.ApiOperation;
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
