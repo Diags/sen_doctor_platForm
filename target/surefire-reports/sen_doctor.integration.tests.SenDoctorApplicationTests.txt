@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: sen_doctor.integration.tests.SenDoctorApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.703 s - in sen_doctor.integration.tests.SenDoctorApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.726 s - in sen_doctor.integration.tests.SenDoctorApplicationTests

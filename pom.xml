@@ -112,6 +112,7 @@
     </dependencies>
 
     <build>
+        <finalName>sen-doctor.com</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
