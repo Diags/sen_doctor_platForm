@@ -14,7 +14,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo
+    working_directory: ~/sen-doctor
 
     environment:
       # Customize the JVM maximum heap limit
@@ -27,29 +27,27 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
+            - sen-doctor-{{ checksum "pom.xml" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - sen-doctor-
 
       - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
+          key: sen-doctor-{{ checksum "pom.xml" }}
 
       # run tests!   package into a jar
-      - run: mvn clean package
-
+      - run: mvn  package
+      - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard.
+          # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: target/surefire-reports
       - store_artifacts:
-           path: target/classes
+           path: target/sen-doctor.com.jar
       - persist_to_workspace:
-           root: ~/repo
-           paths:
-             - target/classes/main
-             - target/classes/test
-             - target/resources/main
-             - target/resources/test
+           root: ~/sen-doctor
+
 workflows:
   version: 2
   build:
