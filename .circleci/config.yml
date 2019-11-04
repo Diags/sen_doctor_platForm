@@ -45,13 +45,6 @@ jobs:
           path: target/surefire-reports
       - store_artifacts:
            path: target/sen-doctor.com.jar
-      - persist_to_workspace:
-           root: ~/sen-doctor
-           paths:
-             - target/classes/main
-             - target/classes/test
-             - target/resources/main
-             - target/resources/test
 workflows:
   version: 2
   build:
