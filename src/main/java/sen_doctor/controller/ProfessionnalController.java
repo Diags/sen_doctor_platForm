@@ -58,9 +58,9 @@ public class ProfessionnalController {
     @PreAuthorize("hasAnyRole('ADMINISTRATOR')")
     @GetMapping(path = "/updateProfessional")
     public Professional updateProfessionalById(@RequestBody Professional professional) {
-        Objects.requireNonNull(professional, "Thes proessionnal must not be null or empty");
+       // Objects.requireNonNull(professional, "Thes proessionnal must not be null or empty");
         Professional professionalDB = professionalRepository.findById(professional.getId()).get();
-        Objects.requireNonNullElse(professionalDB, new UserNotFoundException(professionalDB));
+       // Objects.requireNonNullElse(professionalDB, new UserNotFoundException(professionalDB));
         professionalRepository.save(professionalDB);
         return professionalDB;
     }
@@ -69,9 +69,9 @@ public class ProfessionnalController {
     @PreAuthorize("hasAnyRole('ADMINISTRATOR')")
     @GetMapping(path = "/addProfessional")
     public Professional addProfessionalById(@RequestBody Professional professional) {
-        Objects.requireNonNull(professional, "Thes proessionnal must not be null or empty");
+       // Objects.requireNonNull(professional, "Thes proessionnal must not be null or empty");
         Professional professionalDB = professionalRepository.findById(professional.getId()).get();
-        Objects.requireNonNullElse(professionalDB, new UserNotFoundException(professionalDB));
+       // Objects.requireNonNullElse(professionalDB, new UserNotFoundException(professionalDB));
         professionalRepository.save(professionalDB);
         return professionalDB;
     }
@@ -79,9 +79,9 @@ public class ProfessionnalController {
     @ApiOperation(value = "login  professional to database")
     @GetMapping(path = "/loginprofessionnal")
     public Professional login(@RequestBody LoginParam loginParam) {
-        Objects.requireNonNull(loginParam, "Thes proessionnal must not be null or empty");
+        //Objects.requireNonNull(loginParam, "Thes proessionnal must not be null or empty");
         Professional professionalDB = professionalRepository.findByEmail(loginParam.getEmail());
-        Objects.requireNonNullElse(professionalDB, new UserNotFoundException(professionalDB));
+        //Objects.requireNonNullElse(professionalDB, new UserNotFoundException(professionalDB));
         professionalRepository.save(professionalDB);
         return professionalDB;
     }
@@ -89,9 +89,9 @@ public class ProfessionnalController {
     @ApiOperation(value = "login  professional to database")
     @GetMapping(path = "/registerprofessional")
     public Professional register(@RequestBody RegisterProfessionalParam registerProfessionalParam) {
-        Objects.requireNonNull(registerProfessionalParam, "Thes proessionnal must not be null or empty");
+       // Objects.requireNonNull(registerProfessionalParam, "Thes proessionnal must not be null or empty");
         Professional professionalDB = professionalRepository.findByEmail(registerProfessionalParam.getEmail());
-        Objects.requireNonNullElse(professionalDB, new UserNotFoundException(professionalDB));
+       // Objects.requireNonNullElse(professionalDB, new UserNotFoundException(professionalDB));
         professionalRepository.save(professionalDB);
         return professionalDB;
     }
