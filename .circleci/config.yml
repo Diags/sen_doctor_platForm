@@ -27,16 +27,31 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v1-dependencies-{{ checksum "pom.xml" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: gradle dependencies
+      - run: mvn dependencies
 
       - save_cache:
           paths:
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "pom.xml" }}
 
-      # run tests!
-      - run: gradle test
+      # run tests!   package into a jar
+      - run: mvn clean package
+
+      - store_artifacts:
+           path: target/classes
+      - persist_to_workspace:
+           root: ~/repo
+           paths:
+             - target/classes/main
+             - target/classes/test
+             - target/resources/main
+             - target/resources/test
+ workflows:
+    version: 2
+    build:
+      jobs:
+         - build
