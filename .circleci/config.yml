@@ -50,8 +50,8 @@ jobs:
              - target/classes/test
              - target/resources/main
              - target/resources/test
- workflows:
-    version: 2
-    build:
-      jobs:
-         - build
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
