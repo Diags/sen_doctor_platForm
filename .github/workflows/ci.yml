@@ -16,4 +16,4 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Docker Push
-      uses: 12341953/en-doctor@v01
+      uses: 12341953/sen-doctor1
