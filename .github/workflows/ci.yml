@@ -16,4 +16,4 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Docker Push
-      uses: opspresso/action-docker@v0.2.1
+      uses: 12341953/en-doctor@v01
