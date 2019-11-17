@@ -1,5 +1,6 @@
 package sen_doctor.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -30,6 +31,7 @@ public class Adresse {
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @ApiModelProperty(notes = "Adresse country name")
     private Country country;
+    @JsonIgnore
     @OneToOne(mappedBy = "adresse")
     @ApiModelProperty(notes = "Adresse of proffessionnal")
     private Professional professional;

@@ -34,18 +34,22 @@
   </div>
 
   <div class="container">
-    <form ngForm="#f" (ngSubmit)="getProfesionnalsByTown()">
+    <form #f="ngForm" (ngSubmit)="getProfesionnalsByTown(f.value)" novalidate>
+      {{f.value | json}}
       <div class="input-group">
         <svg width="20" height="20" viewBox="0 0 20 20" class="searchbar-input-icon">
           <path
             d="M19.6 16.92c.48.6.53 1.12.14 1.58l-1.2 1.2c-.58.48-1.16.48-1.72 0l-4.8-4.86a7.6 7.6 0 0 1-3.96 1.1 7.65 7.65 0 0 1-5.64-2.44A7.8 7.8 0 0 1 7.82 0C10 0 11.9.8 13.5 2.42a7.74 7.74 0 0 1 1.23 9.74l4.86 4.76zM2.36 7.86c0 1.5.58 2.8 1.74 3.96 1.16 1.16 2.48 1.73 3.96 1.73s2.76-.54 3.8-1.63a5.35 5.35 0 0 0-.09-7.76A5.44 5.44 0 0 0 7.82 2.4c-1.52 0-2.8.55-3.8 1.64a5 5 0 0 0-1.65 3.8z"></path>
         </svg>
-        <input type="text" class="form-control  searchBarProfessional"
-               placeholder=" Medecins, specialistes, établissements..."  ngModel name="name" required>
+        <input #name="ngModel" [class.is-invalid]="name.invalid && name.touched"
+               class="form-control searchBarProfessional" name="name" ngModel
+               placeholder=" Medecins, specialistes, établissements..."
+               required type="text">
         <span></span>
-        <input type="text" class="form-control searchBarTown" placeholder=" Veuillez saisir la ville  exemple: Bakel ">
+        <input #town="ngModel" [class.is-invalid]="town.invalid" class="form-control searchBarTown" name="town" ngModel
+               placeholder=" Veuillez saisir la ville  exemple: Bakel " required type="text">
         <div class="input-group-append">
-          <button type="button" class="btn btn-warning btn-lg">Search</button>
+          <button [disabled]="f.invalid" class="btn btn-warning btn-lg">Search</button>
         </div>
       </div>
     </form>

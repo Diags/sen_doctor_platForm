@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ParmSearchProfessionnalBySpecialityAndTown {
     private String name;
-    private String twon;
+    private String town;
 }

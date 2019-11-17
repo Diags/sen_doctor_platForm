@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
@@ -77,8 +77,8 @@ export class CatalogueService {
     return this.http.post(this.host + "/register", user);
   }
 
-  getProfesionnalsByTown() {
-    return this.http.get(this.host+"/searchprofesionnalbytown")
+  getProfesionnalsByTown(formData) {
+    return this.http.post(this.host + "/searchprofesionnalbytown", formData)
 
   }
 }

@@ -1,7 +1,7 @@
-export default interface IFormation{
-    id;
+export default interface IFormation {
+  id;
   dateFormation;
-  formationDescription:string;
+  formationDescription: string;
   dateExperience;
-  experience:string;
+  experience: string;
 }
