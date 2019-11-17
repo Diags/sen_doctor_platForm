@@ -1,6 +1,7 @@
 package sen_doctor.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -77,6 +78,7 @@ public class Professional {
     @OneToMany
     @JsonBackReference
     private Collection<Formation> formations;
+    @JsonIgnore
     @JsonManagedReference
     @ManyToOne
     private Speciality speciality;

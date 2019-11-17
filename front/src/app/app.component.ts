@@ -16,8 +16,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.getProfesionnalsByTown();
-    console.log(this.specialities);
   }
 
   ngAfterViewInit(): void {
@@ -79,10 +77,13 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   }
 
-  getProfesionnalsByTown() {
-    this.catalogService.getProfesionnalsByTown().subscribe(resp => {
+  getProfesionnalsByTown(formData) {
+    this.catalogService.getProfesionnalsByTown(formData).subscribe(resp => {
         this.specialities = resp;
-        console.log(resp, "respose professionals");
+        console.log(this.specialities, "respose professionals");
+        this.route.navigate(["/proffesionallist"])
+      }, error => {
+        console.log("this is error", error);
       }
     )
   }
